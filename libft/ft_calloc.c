@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estettle <estettle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 23:44:46 by estettle          #+#    #+#             */
-/*   Updated: 2024/10/20 00:01:17 by estettle         ###   ########.fr       */
+/*   Created: 2024/10/11 11:46:30 by estettle          #+#    #+#             */
+/*   Updated: 2024/10/11 11:46:32 by estettle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-// libft
-# include "libftprintf.a"
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*area;
+	size_t	b_size;
 
-// libraries
-# include <stdarg.h> // for variadic functions and va_ helpers
-
-// function prototypes
-int ft_printf(const char *, ...);
-
-#endif
+	b_size = count * size;
+	area = malloc(b_size);
+	if (!area)
+		return (NULL);
+	ft_bzero(area, b_size);
+	return (area);
+}

@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estettle <estettle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 23:44:46 by estettle          #+#    #+#             */
-/*   Updated: 2024/10/20 00:01:17 by estettle         ###   ########.fr       */
+/*   Created: 2024/09/26 10:55:50 by estettle          #+#    #+#             */
+/*   Updated: 2024/09/26 10:55:53 by estettle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-// libft
-# include "libftprintf.a"
+void	*ft_memset(void *b, int c, size_t len)
+{
+	size_t	i;
 
-// libraries
-# include <stdarg.h> // for variadic functions and va_ helpers
-
-// function prototypes
-int ft_printf(const char *, ...);
-
-#endif
+	i = -1;
+	while (++i < len)
+		*(char *)(b + i) = c;
+	return (b);
+}

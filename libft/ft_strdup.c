@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estettle <estettle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 23:44:46 by estettle          #+#    #+#             */
-/*   Updated: 2024/10/20 00:01:17 by estettle         ###   ########.fr       */
+/*   Created: 2024/10/11 11:47:59 by estettle          #+#    #+#             */
+/*   Updated: 2024/10/11 11:48:00 by estettle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-// libft
-# include "libftprintf.a"
+char	*ft_strdup(const char *s1)
+{
+	int		str_length;
+	char	*copy;
+	int		i;
 
-// libraries
-# include <stdarg.h> // for variadic functions and va_ helpers
-
-// function prototypes
-int ft_printf(const char *, ...);
-
-#endif
+	str_length = (ft_strlen(s1) + 1) * sizeof(char);
+	copy = malloc(str_length);
+	if (!copy)
+		return (NULL);
+	i = 0;
+	while (--str_length)
+		copy[i++] = *(s1++);
+	copy[i] = '\0';
+	return (copy);
+}
+/*
+int	main(void)
+{
+	ft_strdup("Can. You. Hear. Me?");
+}
+*/

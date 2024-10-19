@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estettle <estettle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 23:44:46 by estettle          #+#    #+#             */
-/*   Updated: 2024/10/20 00:01:17 by estettle         ###   ########.fr       */
+/*   Created: 2024/10/11 11:47:18 by estettle          #+#    #+#             */
+/*   Updated: 2024/10/11 11:47:19 by estettle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-// libft
-# include "libftprintf.a"
+t_list	*ft_lstnew(void *content)
+{
+	t_list	*new_lst;
 
-// libraries
-# include <stdarg.h> // for variadic functions and va_ helpers
-
-// function prototypes
-int ft_printf(const char *, ...);
-
-#endif
+	new_lst = malloc(sizeof(t_list));
+	if (!new_lst)
+	{
+		free(new_lst);
+		return (NULL);
+	}
+	new_lst->content = content;
+	new_lst->next = NULL;
+	return (new_lst);
+}

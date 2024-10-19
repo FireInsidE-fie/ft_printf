@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estettle <estettle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 23:44:46 by estettle          #+#    #+#             */
-/*   Updated: 2024/10/20 00:01:17 by estettle         ###   ########.fr       */
+/*   Created: 2024/09/26 10:56:03 by estettle          #+#    #+#             */
+/*   Updated: 2024/10/08 17:57:43 by estettle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-// libft
-# include "libftprintf.a"
+char	*ft_strrchr(const char *s, int c)
+{
+	int	i;
 
-// libraries
-# include <stdarg.h> // for variadic functions and va_ helpers
+	i = ft_strlen(s);
+	while (i >= 0)
+	{
+		if (*(s + i) == (char)c)
+			return ((char *)(s + i));
+		i--;
+	}
+	return (NULL);
+}
+/*
+#include <stdio.h>
 
-// function prototypes
-int ft_printf(const char *, ...);
+int	main(void)
+{
+	char	*melody = "Can. You. Hear. Me?";
 
-#endif
+	printf("%s\n", ft_strrchr(melody, '\0'));
+}
+*/

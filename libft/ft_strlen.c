@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estettle <estettle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 23:44:46 by estettle          #+#    #+#             */
-/*   Updated: 2024/10/20 00:01:17 by estettle         ###   ########.fr       */
+/*   Created: 2024/09/26 10:54:55 by estettle          #+#    #+#             */
+/*   Updated: 2024/09/26 10:54:59 by estettle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-// libft
-# include "libftprintf.a"
+size_t	ft_strlen(const char *s)
+{
+	size_t	count;
 
-// libraries
-# include <stdarg.h> // for variadic functions and va_ helpers
+	count = 0;
+	while (*(s++))
+		count++;
+	return (count);
+}
+/*
+#include <stdio.h>
 
-// function prototypes
-int ft_printf(const char *, ...);
-
-#endif
+int	main(void)
+{
+	printf("%d\n", ft_strlen("Wow this is great"));
+}
+*/
