@@ -5,6 +5,7 @@ RM=rm
 RMFLAGS=-rf
 AR=ar
 ARFLAGS=rcs
+LIBFT=libft/libft.a
 SRCS=ft_printf.c
 OBJS=$(SRCS:.c=.o)
 INCL=ft_printf.h
@@ -16,7 +17,7 @@ $(NAME): $(OBJS)
 %.o: %.c
 	$(CC) $(CFLAGS) --include $(INCL) -o $@ $<
 clean:
-	$(RM) $(RMFLAGS) %.o
+	$(RM) $(RMFLAGS) $(OBJS) 
 fclean: clean
 	$(RM) $(RMFLAGS) $(NAME)
 re: all

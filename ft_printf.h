@@ -14,7 +14,7 @@
 # define FT_PRINTF_H
 
 // libft
-# include "libftprintf.a"
+//# include "libft/libft.a"
 
 // libraries
 # include <stdarg.h> // for variadic functions and va_ helpers

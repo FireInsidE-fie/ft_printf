@@ -12,7 +12,13 @@
 
 #include "ft_printf.h"
 
-int ft_printf(const char *, ...)
+/* here's the plan : 
+ * go through the format string character by character and print it, unless
+ * there's a % in which case you go to an alternate function and begin the
+ * appropriate conversion, depending on the character that occurs after the %
+*/
+int ft_printf(const char *format, ...)
 {
-
+	(void)format;
+	return (0);
 }
