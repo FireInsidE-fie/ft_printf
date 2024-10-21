@@ -18,6 +18,8 @@
 
 // libraries
 # include <stdarg.h> // for variadic functions and va_ helpers
+# include <stdlib.h> // for malloc() and free()
+# include <unistd.h> // for write()
 
 // function prototypes
 int ft_printf(const char *, ...);
