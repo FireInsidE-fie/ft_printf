@@ -12,22 +12,22 @@
 
 #include "ft_printf.h"
 
-void	process_conversion(char c)
+void	process_conversion(char c, va_list args)
 {
 	if (c == 'c')
-		write(1, &c, 1);
+		write(1, va_arg(args, char), 1);
 	else if (c == 's')
-		// strings
+		ft_putstr(va_arg(args, char *));
 	else if (c == 'p')
-		// pointer addresses
+		print_p_addr(va_arg(args, void *));
 	else if (c == 'd' || c == 'i')
-		// decimal integers (?)
+		ft_putnbr(va_arg(args, int));
 	else if (c == 'u')
-		// unsigned integers (?)
+		ft_putuns(va_arg(args, unsigned int));
 	else if (c == 'x')
-		// hexadecimal lowercase
+		ft_puthex(va_arg(args, int), 0);
 	else if (c == 'X')
-		// hexadecimal uppercase (fuse with lowercase?)
+		ft_puthex(va_arg(args, int), 1);
 	else if (c == '%')
 		write(1, "%", 1);
 }
@@ -39,10 +39,14 @@ void	process_conversion(char c)
 */
 int ft_printf(const char *format, ...)
 {
+	va_list	args;
+
+	va_start(args, format);
 	while (*format)
 	{
-		if (*(format++) == '%') // be careful, I'm not sure if format doesn't get incremented BEFORE dereferencing
-			process_conversion(*(format++));
+		if (*(format) == '%') // careful, I'm not sure if format doesn't get incremented BEFORE dereferencing
+			process_conversion(*(format++), args);
+		write(1, format++, 1);
 	}
 	return (0);
 }
