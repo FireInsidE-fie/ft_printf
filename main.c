@@ -12,9 +12,15 @@
 
 #include "ft_printf.h"
 
-int	main(int argc, char **argv)
+int	main()
 {
-	if (argc < 3)
-		return 0;
-	ft_printf(argv[1], argv[2]);
+	ft_printf("[!] - Beginning basic tests...\n\n");
+	ft_printf("");
+	ft_printf("wow wow\n");
+	ft_printf("wow\t\twow\n");
+
+	ft_printf("[!] - c conversion tests...\n\n");
+	ft_printf("Printing c : %c\n", 'c');
+	ft_printf("Printing a null character : %c\n", '\0');
+	ft_printf("Printing 9 : %c\n", '9');
 }
