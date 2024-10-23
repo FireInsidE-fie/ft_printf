@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estettle <estettle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 23:44:46 by estettle          #+#    #+#             */
-/*   Updated: 2024/10/23 10:59:19 by estettle         ###   ########.fr       */
+/*   Created: 2024/10/23 10:49:58 by estettle          #+#    #+#             */
+/*   Updated: 2024/10/23 10:51:37 by estettle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-// libft
-# include "libft/libft.h"
-
-// libraries
-# include <stdarg.h> // for variadic functions and va_ helpers
-# include <stdlib.h> // for malloc() and free()
-# include <unistd.h> // for write()
-
-// function prototypes
-int 	ft_printf(const char *, ...);
-void	ft_putstr(char *string);
-void	ft_putuns(unsigned int n);
-
-#endif
+int	main(int argc, char **argv)
+{
+	if (argc < 3)
+		return 0;
+	ft_printf(argv[1], argv[2]);
+}

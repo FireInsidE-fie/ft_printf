@@ -10,3 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
+
+void	ft_putnbr_base(int nb, char *charset)
+{
+	short	base;
+
+	base = ft_strlen(charset);
+}

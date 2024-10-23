@@ -6,7 +6,7 @@
 /*   By: estettle <estettle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 23:57:28 by estettle          #+#    #+#             */
-/*   Updated: 2024/10/19 23:58:03 by estettle         ###   ########.fr       */
+/*   Updated: 2024/10/23 10:55:20 by estettle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,23 @@
 void	process_conversion(char c, va_list args)
 {
 	if (c == 'c')
-		write(1, va_arg(args, int), 1);
+		;
+		//write(1, va_arg(args, int), 1);
 	else if (c == 's')
 		ft_putstr_fd(va_arg(args, char *), 1);
 	else if (c == 'p')
-		ft_print_addr(va_arg(args, void *));
+		;
+		//ft_print_addr(va_arg(args, void *));
 	else if (c == 'd' || c == 'i')
 		ft_putnbr_fd(va_arg(args, int), 1);
 	else if (c == 'u')
 		ft_putuns(va_arg(args, unsigned int));
 	else if (c == 'x')
-		ft_puthex(va_arg(args, int), 0);
+		;
+		//ft_putnbr_base(va_arg(args, int), "0123456789abcdef");
 	else if (c == 'X')
-		ft_puthex(va_arg(args, int), 1);
+		;
+		//ft_putnbr_base(va_arg(args, int), "0123456788ABCDEF);
 	else if (c == '%')
 		write(1, "%", 1);
 	else
