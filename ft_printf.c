@@ -14,9 +14,9 @@
 
 void	ft_putnbr_base(int nb, char *charset)
 {
-	short	base;
+	//short	base;
 
-	base = ft_strlen(charset);
+	//base = ft_strlen(charset);
 	if (nb == -2147483648)
 	{
 		write(1, "-2147483648", 11);
@@ -79,17 +79,19 @@ void	process_conversion(char c, va_list args)
 */
 int	ft_printf(const char *format, ...)
 {
+	int		count;
 	va_list	args;
 
+	count = 0;
 	va_start(args, format);
-	while (*format)
+	while (format[count])
 	{
-		if (*(format) == '%')
+		if (format[count] == '%')
 		{
-			format++;
-			process_conversion(*(format++), args);
+			count++;
+			process_conversion(format[count++], args);
 		}
-		write(1, format++, 1);
+		write(1, format + count++, 1);
 	}
-	return (0);
+	return (count);
 }
