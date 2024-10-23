@@ -11,12 +11,12 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft/libft.h"
 
 void	process_conversion(char c, va_list args)
 {
 	if (c == 'c')
-		;
-		//write(1, va_arg(args, int), 1);
+		ft_putchar_fd(va_arg(args, int), 1);
 	else if (c == 's')
 		ft_putstr_fd(va_arg(args, char *), 1);
 	else if (c == 'p')
@@ -50,8 +50,11 @@ int ft_printf(const char *format, ...)
 	va_start(args, format);
 	while (*format)
 	{
-		if (*(format) == '%') // careful, I'm not sure if format doesn't get incremented BEFORE dereferencing
+		if (*(format) == '%')
+		{
+			format++;
 			process_conversion(*(format++), args);
+		}
 		write(1, format++, 1);
 	}
 	return (0);

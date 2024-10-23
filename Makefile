@@ -26,6 +26,6 @@ re: fclean all
 
 $(LIBFT):
 	cd ./libft && make
-debug: main.c
+debug: $(SRCS) main.c
 	$(CC) $(CFLAGS) $(LIBFT) $(SRCS) main.c -include $(INCL) -o $@
 .PHONY: all clean fclean re
