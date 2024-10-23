@@ -11,7 +11,41 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft/libft.h"
+
+void	ft_putnbr_base(int nb, char *charset)
+{
+	short	base;
+
+	base = ft_strlen(charset);
+	if (nb == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+		return ;
+	}
+	else if (nb < 0)
+	{
+		write(1, "-", 1);
+		nb = -nb;
+	}
+	if (nb >= 10)
+	{
+		ft_putnbr_base(nb / 10, charset);
+		nb = nb % 10;
+	}
+	if (nb < 10)
+		ft_putchar_fd(nb + '0', 1);
+}
+
+void	ft_putuns(unsigned int n)
+{
+	if (n >= 10)
+	{
+		ft_putuns(n / 10);
+		n = n % 10;
+	}
+	if (n < 10)
+		ft_putchar_fd(n + '0', 1);
+}
 
 void	process_conversion(char c, va_list args)
 {
@@ -31,7 +65,7 @@ void	process_conversion(char c, va_list args)
 		//ft_putnbr_base(va_arg(args, int), "0123456789abcdef");
 	else if (c == 'X')
 		;
-		//ft_putnbr_base(va_arg(args, int), "0123456788ABCDEF);
+		//ft_putnbr_base(va_arg(args, int), "0123456788ABCDEF");
 	else if (c == '%')
 		write(1, "%", 1);
 	else

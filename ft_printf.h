@@ -18,12 +18,11 @@
 
 // libraries
 # include <stdarg.h> // for variadic functions and va_ helpers
-# include <stdlib.h> // for malloc() and free()
 # include <unistd.h> // for write()
 
 // function prototypes
 int		ft_printf(const char *format, ...);
-void	ft_putstr(char *string);
 void	ft_putuns(unsigned int n);
+void	ft_putnbr_base(int nb, char *charset);
 
 #endif
