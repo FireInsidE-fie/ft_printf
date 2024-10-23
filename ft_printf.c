@@ -15,13 +15,13 @@
 void	process_conversion(char c, va_list args)
 {
 	if (c == 'c')
-		write(1, va_arg(args, char), 1);
+		write(1, va_arg(args, int), 1);
 	else if (c == 's')
 		ft_putstr_fd(va_arg(args, char *), 1);
 	else if (c == 'p')
-		print_addr(va_arg(args, void *));
+		ft_print_addr(va_arg(args, void *));
 	else if (c == 'd' || c == 'i')
-		ft_putnbr(va_arg(args, int));
+		ft_putnbr_fd(va_arg(args, int), 1);
 	else if (c == 'u')
 		ft_putuns(va_arg(args, unsigned int));
 	else if (c == 'x')

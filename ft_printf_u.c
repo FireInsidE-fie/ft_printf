@@ -10,3 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
+#include <limits.h>
+
+void	ft_putuns(unsigned int n)
+{
+	if (n >= 10)
+	{
+		ft_putuns(n / 10);
+		n = n % 10;
+	}
+	if (n < 10)
+		ft_putchar_fd(n + '0', 1);
+}
