@@ -17,9 +17,9 @@ void	process_conversion(char c, va_list args)
 	if (c == 'c')
 		write(1, va_arg(args, char), 1);
 	else if (c == 's')
-		ft_putstr(va_arg(args, char *));
+		ft_putstr_fd(va_arg(args, char *), 1);
 	else if (c == 'p')
-		print_p_addr(va_arg(args, void *));
+		print_addr(va_arg(args, void *));
 	else if (c == 'd' || c == 'i')
 		ft_putnbr(va_arg(args, int));
 	else if (c == 'u')
@@ -30,6 +30,8 @@ void	process_conversion(char c, va_list args)
 		ft_puthex(va_arg(args, int), 1);
 	else if (c == '%')
 		write(1, "%", 1);
+	else
+		write(1, &c, 1);
 }
 
 /* here's the plan : 

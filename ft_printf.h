@@ -14,7 +14,7 @@
 # define FT_PRINTF_H
 
 // libft
-//# include "libft/libft.a"
+# include "libft/libft.h"
 
 // libraries
 # include <stdarg.h> // for variadic functions and va_ helpers
@@ -22,6 +22,7 @@
 # include <unistd.h> // for write()
 
 // function prototypes
-int ft_printf(const char *, ...);
+int 	ft_printf(const char *, ...);
+void	ft_putstr(char *string);
 
 #endif
