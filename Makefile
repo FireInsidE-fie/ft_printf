@@ -16,7 +16,7 @@ $(NAME): $(OBJS)
 	$(AR) $(ARFLAGS) $(LIBFT) $(OBJS)
 	cp $(LIBFT) ./$(NAME)
 %.o: %.c
-	$(CC) $(CFLAGS) -include $(INCL) -Llibft/ -l:libft.a -c $< -o $@ 
+	$(CC) $(CFLAGS) -include $(INCL) -c $< -o $@ 
 clean:
 	$(RM) $(RMFLAGS) $(OBJS) 
 fclean: clean
@@ -26,5 +26,5 @@ re: fclean all
 $(LIBFT):
 	cd ./libft && make
 debug: $(SRCS) main.c
-	$(CC) $(CFLAGS) $(SRCS) main.c -include $(INCL) -Llibft/ -l:libft.a -o $@
+	$(CC) $(CFLAGS) $(SRCS) main.c -include $(INCL) -Llibft/ -lft -o $@
 .PHONY: all clean fclean re
