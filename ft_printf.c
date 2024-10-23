@@ -43,7 +43,7 @@ void	process_conversion(char c, va_list args)
  * there's a % in which case you go to an alternate function and begin the
  * appropriate conversion, depending on the character that occurs after the %
 */
-int ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
 	va_list	args;
 

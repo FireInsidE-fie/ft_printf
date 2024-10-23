@@ -22,7 +22,7 @@
 # include <unistd.h> // for write()
 
 // function prototypes
-int 	ft_printf(const char *, ...);
+int		ft_printf(const char *format, ...);
 void	ft_putstr(char *string);
 void	ft_putuns(unsigned int n);
 
