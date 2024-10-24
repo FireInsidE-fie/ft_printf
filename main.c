@@ -23,6 +23,7 @@ int	main(void)
 	ft_printf("wow wow\n");
 	ft_printf("wow\t\twow\n");
 	ft_printf("%%\n");
+	ft_printf("%%%wow\n");
 
 	ft_printf("\n[!] - c conversion tests...\n\n");
 	ft_printf("Printing c : %c\n", 'c');
@@ -33,6 +34,7 @@ int	main(void)
 	ft_printf("String 1 : %s\n", "");
 	ft_printf("String 2 : %s\n", "\nwow\nwow\n");
 	ft_printf("String 3 : %s\n", "Without the Lord, all is in vain.");
+	ft_printf("String 3 : %s%s%s%s\n", "Without ", "the ", "Lord ", "all is in vain.");
 	ft_printf("String 4 : %s\n", "Time to mix drinks and change lives.");
 	ft_printf("String 5 : %s\n", "\n\t\b\t\n");
 	ft_printf("String 6 : %s\n", "%s");
@@ -68,4 +70,12 @@ int	main(void)
 	ft_printf("Printing -99 : %x\n", -99);
 	ft_printf("Printing INT_MAX : %x\n", INT_MAX);
 	ft_printf("Printing INT_MIN : %x\n", INT_MIN);
+
+	ft_printf("\n[!] - X conversion tests...\n\n");
+	ft_printf("Printing 0 : %X\n", 0);
+	ft_printf("Printing NULL : %X\n", NULL);
+	ft_printf("Printing 99 : %X\n", 99);
+	ft_printf("Printing -99 : %X\n", -99);
+	ft_printf("Printing INT_MAX : %X\n", INT_MAX);
+	ft_printf("Printing INT_MIN : %X\n", INT_MIN);
 }
