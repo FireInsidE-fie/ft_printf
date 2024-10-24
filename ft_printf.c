@@ -14,26 +14,29 @@
 
 void	ft_putnbr_base(int nb, char *charset)
 {
-	//short	base;
+	short	base;
 
-	//base = ft_strlen(charset);
+	base = ft_strlen(charset) + 1;
 	if (nb == -2147483648)
 	{
-		write(1, "-2147483648", 11);
+		if (charset[base] == 'F')
+			write(1, "-FFFFFFFF", 9);
+		else
+			write(1, "-ffffffff", 9);
 		return ;
 	}
-	else if (nb < 0)
+	if (nb < 0)
 	{
 		write(1, "-", 1);
 		nb = -nb;
 	}
-	if (nb >= 10)
+	if (nb >= base)
 	{
-		ft_putnbr_base(nb / 10, charset);
-		nb = nb % 10;
+		ft_putnbr_base(nb / base, charset);
+		nb = nb % base;
 	}
-	if (nb < 10)
-		ft_putchar_fd(nb + '0', 1);
+	if (nb < base)
+		ft_putchar_fd(charset[nb], 1);
 }
 
 void	ft_putuns(unsigned int n)
@@ -61,11 +64,9 @@ void	process_conversion(char c, va_list args)
 	else if (c == 'u')
 		ft_putuns(va_arg(args, unsigned int));
 	else if (c == 'x')
-		;
-		//ft_putnbr_base(va_arg(args, int), "0123456789abcdef");
+		ft_putnbr_base(va_arg(args, int), "0123456789abcdef");
 	else if (c == 'X')
-		;
-		//ft_putnbr_base(va_arg(args, int), "0123456788ABCDEF");
+		ft_putnbr_base(va_arg(args, int), "0123456788ABCDEF");
 	else if (c == '%')
 		write(1, "%", 1);
 	else

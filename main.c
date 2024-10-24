@@ -26,7 +26,7 @@ int	main(void)
 
 	ft_printf("\n[!] - c conversion tests...\n\n");
 	ft_printf("Printing c : %c\n", 'c');
-	ft_printf("Printing a null character : %c\n", '\0');
+	ft_printf("Printing a null character : %c\n", 0);
 	ft_printf("Printing 9 : %c\n", '9');
 
 	ft_printf("\n[!] - s conversion tests...\n\n");
@@ -60,4 +60,12 @@ int	main(void)
 	ft_printf("Printing -99 : %u\n", -99);
 	ft_printf("Printing INT_MAX : %u\n", INT_MAX);
 	ft_printf("Printing INT_MIN : %u\n", INT_MIN);
+
+	ft_printf("\n[!] - x conversion tests...\n\n");
+	ft_printf("Printing 0 : %x\n", 0);
+	ft_printf("Printing NULL : %x\n", NULL);
+	ft_printf("Printing 99 : %x\n", 99);
+	ft_printf("Printing -99 : %x\n", -99);
+	ft_printf("Printing INT_MAX : %x\n", INT_MAX);
+	ft_printf("Printing INT_MIN : %x\n", INT_MIN);
 }
