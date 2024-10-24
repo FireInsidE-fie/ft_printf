@@ -12,6 +12,12 @@
 
 #include "ft_printf.h"
 
+/**
+ * @brief Puts a number to the standard input in the specified base.
+ *
+ * @param nb The number to print.
+ * @param charset The charset for the base (length determines the base number).
+ */
 void	ft_putnbr_base(int nb, char *charset)
 {
 	short	base;
@@ -66,7 +72,7 @@ void	process_conversion(char c, va_list args)
 	else if (c == 'x')
 		ft_putnbr_base(va_arg(args, int), "0123456789abcdef");
 	else if (c == 'X')
-		ft_putnbr_base(va_arg(args, int), "0123456788ABCDEF");
+		ft_putnbr_base(va_arg(args, int), "0123456789ABCDEF");
 	else if (c == '%')
 		write(1, "%", 1);
 	else
@@ -90,9 +96,11 @@ int	ft_printf(const char *format, ...)
 		if (format[count] == '%')
 		{
 			count++;
-			process_conversion(format[count++], args);
+			if (format[count])
+				process_conversion(format[count++], args);
 		}
-		write(1, format + count++, 1);
+		if (format[count])
+			write(1, format + count++, 1);
 	}
 	return (count);
 }
