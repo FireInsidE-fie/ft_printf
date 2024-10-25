@@ -22,13 +22,10 @@ void	ft_putnbr_base(int nb, char *charset)
 {
 	short	base;
 
-	base = ft_strlen(charset) + 1;
+	base = ft_strlen(charset);
 	if (nb == -2147483648)
 	{
-		if (charset[base] == 'F')
-			write(1, "-FFFFFFFF", 9);
-		else
-			write(1, "-ffffffff", 9);
+		write(1, "-80000000", 9);
 		return ;
 	}
 	if (nb < 0)
