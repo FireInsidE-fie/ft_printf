@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf_s.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estettle <estettle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 23:44:46 by estettle          #+#    #+#             */
-/*   Updated: 2024/10/25 14:39:45 by estettle         ###   ########.fr       */
+/*   Created: 2024/10/25 13:51:18 by estettle          #+#    #+#             */
+/*   Updated: 2024/10/25 14:00:37 by estettle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-// libft
-# include "libft/libft.h"
-
-// libraries
-# include <stdarg.h> // for variadic functions and va_ helpers
-# include <unistd.h> // for write()
-
-// function prototypes
-int		ft_printf(const char *format, ...);
-void	ft_putuns(unsigned int n);
-void	process_string(char *str, int *count);
-void	process_decimal(int nb, int *count);
-
-#endif
+void	process_string(char *str, int *count)
+{
+	if (!str)
+		return ;
+	ft_putstr_fd(str, 1);
+	*count += ft_strlen(str);
+}

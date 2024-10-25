@@ -1,29 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf_d.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estettle <estettle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 23:44:46 by estettle          #+#    #+#             */
-/*   Updated: 2024/10/25 14:39:45 by estettle         ###   ########.fr       */
+/*   Created: 2024/10/25 14:26:11 by estettle          #+#    #+#             */
+/*   Updated: 2024/10/25 14:40:00 by estettle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-// libft
-# include "libft/libft.h"
+static int	get_int_len(int nb)
+{
+	int	divider;
+	int	digit_count;
 
-// libraries
-# include <stdarg.h> // for variadic functions and va_ helpers
-# include <unistd.h> // for write()
+	if (nb == -2147483648)
+		return (11);
+	divider = 1;
+	digit_count = 1;
+	if (nb < 0)
+	{
+		digit_count++;
+		nb = -nb;
+	}
+	while ((nb / divider) >= 10)
+	{
+		divider *= 10;
+		digit_count++;
+	}
+	return (digit_count);
+}
 
-// function prototypes
-int		ft_printf(const char *format, ...);
-void	ft_putuns(unsigned int n);
-void	process_string(char *str, int *count);
-void	process_decimal(int nb, int *count);
-
-#endif
+void	process_decimal(int nb, int *count)
+{
+	ft_putnbr_fd(nb, 1);
+	count += get_int_len(nb);
+}

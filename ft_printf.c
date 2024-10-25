@@ -6,31 +6,11 @@
 /*   By: estettle <estettle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 23:57:28 by estettle          #+#    #+#             */
-/*   Updated: 2024/10/25 14:06:58 by estettle         ###   ########.fr       */
+/*   Updated: 2024/10/25 14:40:26 by estettle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-/**
- * @brief Puts a number to the standard input in the specified base.
- *
- * @param nb The number to print.
- * @param charset The charset for the base (length determines the base number).
- */
-void	ft_putnbr_base(int nb, char *charset)
-{
-	short	base;
-
-	base = ft_strlen(charset);
-	if (nb >= base)
-	{
-		ft_putnbr_base(nb / base, charset);
-		nb = nb % base;
-	}
-	if (nb < base)
-		ft_putchar_fd(charset[nb], 1);
-}
 
 void	ft_putuns(unsigned int n)
 {
@@ -53,13 +33,13 @@ static void	process_conversion(char c, int *count, va_list args)
 		;
 		//ft_print_addr(va_arg(args, void *));
 	else if (c == 'd' || c == 'i')
-		ft_putnbr_fd(va_arg(args, int), 1);
+		process_decimal(va_arg(args, int), count);
 	else if (c == 'u')
 		ft_putuns(va_arg(args, unsigned int));
 	else if (c == 'x')
-		ft_putnbr_base(va_arg(args, unsigned int), "0123456789abcdef");
+		; //ft_putnbr_base(va_arg(args, unsigned int), "0123456789abcdef");
 	else if (c == 'X')
-		ft_putnbr_base(va_arg(args, unsigned int), "0123456789ABCDEF");
+		; //ft_putnbr_base(va_arg(args, unsigned int), "0123456789ABCDEF");
 	else if (c == '%' && ++(*count))
 		write(1, "%", 1);
 	else if (++(*count))
