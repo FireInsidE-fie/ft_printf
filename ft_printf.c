@@ -6,7 +6,7 @@
 /*   By: estettle <estettle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 23:57:28 by estettle          #+#    #+#             */
-/*   Updated: 2024/10/25 14:40:26 by estettle         ###   ########.fr       */
+/*   Updated: 2024/10/25 15:33:10 by estettle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ static void	process_conversion(char c, int *count, va_list args)
 	else if (c == 'u')
 		ft_putuns(va_arg(args, unsigned int));
 	else if (c == 'x')
-		; //ft_putnbr_base(va_arg(args, unsigned int), "0123456789abcdef");
+		process_hex(va_arg(args, int), count, 0);
 	else if (c == 'X')
-		; //ft_putnbr_base(va_arg(args, unsigned int), "0123456789ABCDEF");
+		process_hex(va_arg(args, int), count, 1);
 	else if (c == '%' && ++(*count))
 		write(1, "%", 1);
 	else if (++(*count))
