@@ -6,22 +6,11 @@
 /*   By: estettle <estettle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 23:57:28 by estettle          #+#    #+#             */
-/*   Updated: 2024/10/25 15:33:10 by estettle         ###   ########.fr       */
+/*   Updated: 2024/10/25 15:41:38 by estettle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-void	ft_putuns(unsigned int n)
-{
-	if (n >= 10)
-	{
-		ft_putuns(n / 10);
-		n = n % 10;
-	}
-	if (n < 10)
-		ft_putchar_fd(n + '0', 1);
-}
 
 static void	process_conversion(char c, int *count, va_list args)
 {
@@ -35,7 +24,7 @@ static void	process_conversion(char c, int *count, va_list args)
 	else if (c == 'd' || c == 'i')
 		process_decimal(va_arg(args, int), count);
 	else if (c == 'u')
-		ft_putuns(va_arg(args, unsigned int));
+		process_uns(va_arg(args, unsigned int), count);
 	else if (c == 'x')
 		process_hex(va_arg(args, int), count, 0);
 	else if (c == 'X')
