@@ -6,7 +6,7 @@
 /*   By: estettle <estettle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 14:26:11 by estettle          #+#    #+#             */
-/*   Updated: 2024/10/25 14:40:00 by estettle         ###   ########.fr       */
+/*   Updated: 2024/10/25 15:39:05 by estettle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,5 @@ static int	get_int_len(int nb)
 void	process_decimal(int nb, int *count)
 {
 	ft_putnbr_fd(nb, 1);
-	count += get_int_len(nb);
+	*count += get_int_len(nb);
 }
