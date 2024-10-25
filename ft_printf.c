@@ -84,20 +84,23 @@ void	process_conversion(char c, va_list args)
 int	ft_printf(const char *format, ...)
 {
 	int		count;
+	int		i;
 	va_list	args;
 
 	count = 0;
+	i = 0;
 	va_start(args, format);
-	while (format[count])
+	while (format[i])
 	{
-		if (format[count] == '%')
+		count++;
+		if (format[i] == '%')
 		{
-			count++;
-			if (format[count])
-				process_conversion(format[count++], args);
+			i++;
+			if (format[i])
+				process_conversion(format[i++], args);
 		}
-		if (format[count])
-			write(1, format + count++, 1);
+		if (format[i])
+			write(1, format + i++, 1);
 	}
 	return (count);
 }
