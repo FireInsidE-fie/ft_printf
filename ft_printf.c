@@ -6,7 +6,7 @@
 /*   By: estettle <estettle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 23:57:28 by estettle          #+#    #+#             */
-/*   Updated: 2024/10/23 10:55:20 by estettle         ###   ########.fr       */
+/*   Updated: 2024/10/25 14:06:58 by estettle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,6 @@ void	ft_putnbr_base(int nb, char *charset)
 	short	base;
 
 	base = ft_strlen(charset);
-	if (nb == -2147483648)
-	{
-		write(1, "-80000000", 9);
-		return ;
-	}
-	if (nb < 0)
-	{
-		write(1, "-", 1);
-		nb = -nb;
-	}
 	if (nb >= base)
 	{
 		ft_putnbr_base(nb / base, charset);
@@ -53,12 +43,12 @@ void	ft_putuns(unsigned int n)
 		ft_putchar_fd(n + '0', 1);
 }
 
-void	process_conversion(char c, va_list args)
+static void	process_conversion(char c, int *count, va_list args)
 {
-	if (c == 'c')
+	if (c == 'c' && ++(*count))
 		ft_putchar_fd(va_arg(args, int), 1);
 	else if (c == 's')
-		ft_putstr_fd(va_arg(args, char *), 1);
+		process_string(va_arg(args, char *), count);
 	else if (c == 'p')
 		;
 		//ft_print_addr(va_arg(args, void *));
@@ -67,20 +57,15 @@ void	process_conversion(char c, va_list args)
 	else if (c == 'u')
 		ft_putuns(va_arg(args, unsigned int));
 	else if (c == 'x')
-		ft_putnbr_base(va_arg(args, int), "0123456789abcdef");
+		ft_putnbr_base(va_arg(args, unsigned int), "0123456789abcdef");
 	else if (c == 'X')
-		ft_putnbr_base(va_arg(args, int), "0123456789ABCDEF");
-	else if (c == '%')
+		ft_putnbr_base(va_arg(args, unsigned int), "0123456789ABCDEF");
+	else if (c == '%' && ++(*count))
 		write(1, "%", 1);
-	else
+	else if (++(*count))
 		write(1, &c, 1);
 }
 
-/* here's the plan : 
- * go through the format string character by character and print it, unless
- * there's a % in which case you go to an alternate function and begin the
- * appropriate conversion, depending on the character that occurs after the %
-*/
 int	ft_printf(const char *format, ...)
 {
 	int		count;
@@ -92,15 +77,17 @@ int	ft_printf(const char *format, ...)
 	va_start(args, format);
 	while (format[i])
 	{
-		count++;
 		if (format[i] == '%')
 		{
 			i++;
 			if (format[i])
-				process_conversion(format[i++], args);
+				process_conversion(format[i++], &count, args);
 		}
-		if (format[i])
+		else if (format[i])
+		{
 			write(1, format + i++, 1);
+			count++;
+		}
 	}
 	return (count);
 }

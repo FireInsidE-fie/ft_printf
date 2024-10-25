@@ -6,7 +6,8 @@ RMFLAGS=	-f
 AR=			ar
 ARFLAGS=	r
 LIBFT=		libft/libft.a
-SRCS=		ft_printf.c
+SRCS=		ft_printf.c \
+			ft_printf_s.c
 OBJS=		$(SRCS:.c=.o)
 INCL=		ft_printf.h
 
