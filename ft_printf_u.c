@@ -15,15 +15,10 @@
 static int	get_uns_len(unsigned int nb)
 {
 	unsigned int	divider;
-	int	digit_count;
+	int				digit_count;
 
 	divider = 1;
 	digit_count = 1;
-	if (nb < 0)
-	{
-		digit_count++;
-		nb = -nb;
-	}
 	while ((nb / divider) >= 10)
 	{
 		divider *= 10;
