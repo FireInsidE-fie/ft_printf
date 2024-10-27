@@ -6,7 +6,7 @@
 /*   By: estettle <estettle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 23:44:46 by estettle          #+#    #+#             */
-/*   Updated: 2024/10/25 15:44:24 by estettle         ###   ########.fr       */
+/*   Updated: 2024/10/27 21:06:21 by estettle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@
 
 // function prototypes
 int		ft_printf(const char *format, ...);
-void	process_string(char *str, int *count);
-void	process_decimal(int nb, int *count);
+void	process_str(char *str, int *count);
+void	process_dec(int nb, int *count);
 void	process_uns(unsigned int nb, int *count);
 void	process_hex(int nb, int *count, int is_uppercase);
+void	process_ptr(void *ptr, int *count);
 
 #endif

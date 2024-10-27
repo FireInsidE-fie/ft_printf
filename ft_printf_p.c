@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_s.c                                      :+:      :+:    :+:   */
+/*   ft_printf_p.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estettle <estettle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/25 13:51:18 by estettle          #+#    #+#             */
-/*   Updated: 2024/10/27 21:06:29 by estettle         ###   ########.fr       */
+/*   Created: 2024/10/27 20:58:59 by estettle          #+#    #+#             */
+/*   Updated: 2024/10/27 21:13:39 by estettle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft/libft.h"
 
-void	process_str(char *str, int *count)
+void	process_ptr(void *ptr, int *count)
 {
-	if (!str)
+	if (!ptr)
 	{
-		ft_putstr_fd("(null)", 1);
-		*count += 6;
-		return ;
+		write(1, "0x0", 3);
+		*count += 3;
 	}
-	ft_putstr_fd(str, 1);
-	*count += ft_strlen(str);
+
 }

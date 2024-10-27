@@ -6,7 +6,7 @@
 /*   By: estettle <estettle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 10:49:58 by estettle          #+#    #+#             */
-/*   Updated: 2024/10/25 14:51:03 by estettle         ###   ########.fr       */
+/*   Updated: 2024/10/27 21:08:18 by estettle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@ int	main(void)
 	ft_printf("String 4 : %s\n", "Time to mix drinks and change lives.");
 	ft_printf("String 5 : %s\n", "\n\t\b\t\n");
 	ft_printf("String 6 : %s\n", "%s");
+
+	ft_printf("\n[!] - p conversion tests...\n\n");
+	ft_printf("Printing address of NULL : %p\n", NULL);
 
 	ft_printf("\n[!] - d conversion tests...\n\n");
 	ft_printf("Printing 0 : %d\n", 0);

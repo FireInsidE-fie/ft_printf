@@ -6,7 +6,7 @@
 /*   By: estettle <estettle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 23:57:28 by estettle          #+#    #+#             */
-/*   Updated: 2024/10/25 15:41:38 by estettle         ###   ########.fr       */
+/*   Updated: 2024/10/27 21:07:21 by estettle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,11 @@ static void	process_conversion(char c, int *count, va_list args)
 	if (c == 'c' && ++(*count))
 		ft_putchar_fd(va_arg(args, int), 1);
 	else if (c == 's')
-		process_string(va_arg(args, char *), count);
+		process_str(va_arg(args, char *), count);
 	else if (c == 'p')
-		;
-		//ft_print_addr(va_arg(args, void *));
+		process_ptr(va_arg(args, void *), count);
 	else if (c == 'd' || c == 'i')
-		process_decimal(va_arg(args, int), count);
+		process_dec(va_arg(args, int), count);
 	else if (c == 'u')
 		process_uns(va_arg(args, unsigned int), count);
 	else if (c == 'x')

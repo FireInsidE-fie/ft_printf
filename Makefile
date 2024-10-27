@@ -8,9 +8,10 @@ ARFLAGS=	r
 LIBFT=		libft/libft.a
 SRCS=		ft_printf.c \
 			ft_printf_d.c \
+			ft_printf_p.c \
+			ft_printf_s.c \
 			ft_printf_u.c \
-			ft_printf_x.c \
-			ft_printf_s.c
+			ft_printf_x.c
 OBJS=		$(SRCS:.c=.o)
 INCL=		ft_printf.h
 
