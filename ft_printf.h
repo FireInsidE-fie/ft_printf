@@ -26,7 +26,7 @@ int		ft_printf(const char *format, ...);
 void	process_str(char *str, int *count);
 void	process_dec(int nb, int *count);
 void	process_uns(unsigned int nb, int *count);
-void	process_hex(int nb, int *count, int is_uppercase);
+void	process_hex(unsigned int nb, int *count, int is_uppercase);
 void	process_ptr(void *ptr, int *count);
 
 #endif

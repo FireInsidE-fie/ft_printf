@@ -18,18 +18,12 @@
  * @param nb The number to print.
  * @param charset The charset for the base (length determines the base number).
  */
-static void	ft_putnbr_base(int nb, char *charset, int *count)
+static void	ft_putnbr_base(unsigned int nb, char *charset, int *count)
 {
-	short	base;
+	unsigned short	base;
 
 	base = ft_strlen(charset);
 	(*count)++;
-	if (nb < 0)
-	{
-		write(1, "-", 1);
-		(*count)++;
-		nb = -nb;
-	}
 	if (nb >= base)
 	{
 		ft_putnbr_base(nb / base, charset, count);
@@ -40,7 +34,7 @@ static void	ft_putnbr_base(int nb, char *charset, int *count)
 		ft_putchar_fd(charset[nb], 1);
 }
 
-void	process_hex(int nb, int *count, int is_uppercase)
+void	process_hex(unsigned int nb, int *count, int is_uppercase)
 {
 	if (is_uppercase)
 		ft_putnbr_base(nb, "0123456789ABCDEF", count);

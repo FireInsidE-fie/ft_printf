@@ -141,26 +141,34 @@ int	main(void)
 	printf("Printing 0 : %x\n", 0);
 	printf("Printing NULL : %x\n", NULL);
 	printf("Printing 99 : %x\n", 99);
-	printf("Printing 39 : %x\n", 39);
+	printf("(borken) Printing -39 : %x\n", -39);
+	printf("Printing abcdef : %x\n", 0xabcdef);
 	printf("Printing INT_MAX : %x\n", INT_MAX);
+	printf("(borken) Printing INT_MIN : %x\n", INT_MIN);
 
 	ft_printf("Printing 0 : %x\n", 0);
 	ft_printf("Printing NULL : %x\n", NULL);
 	ft_printf("Printing 99 : %x\n", 99);
-	ft_printf("Printing 39 : %x\n", 39);
+	ft_printf("Printing -39 : %x\n", -39);
+	ft_printf("Printing abcdef : %x\n", 0xabcdef);
 	ft_printf("Printing INT_MAX : %x\n", INT_MAX);
+	ft_printf("Printing INT_MIN : %x\n", INT_MIN);
 
 	ft_printf("\n[!] - X conversion tests...\n\n");
 
 	printf("Printing 0 : %X\n", 0);
 	printf("Printing NULL : %X\n", NULL);
 	printf("Printing 99 : %X\n", 99);
-	printf("Printing 39 : %X\n", 39);
+	printf("(borken) Printing -39 : %X\n", -39);
+	printf("Printing ABCDEF : %X\n", 0xabcdef);
 	printf("Printing INT_MAX : %X\n", INT_MAX);
+	printf("(broken) Printing INT_MIN : %X\n", INT_MIN);
 
 	ft_printf("Printing 0 : %X\n", 0);
 	ft_printf("Printing NULL : %X\n", NULL);
 	ft_printf("Printing 99 : %X\n", 99);
-	ft_printf("Printing 39 : %X\n", 39);
+	ft_printf("Printing -39 : %X\n", -39);
+	ft_printf("Printing ABCDEF : %X\n", 0xabcdef);
 	ft_printf("Printing INT_MAX : %X\n", INT_MAX);
+	ft_printf("Printing INT_MIN : %X\n", INT_MIN);
 }

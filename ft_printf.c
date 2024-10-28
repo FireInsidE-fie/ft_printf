@@ -25,9 +25,9 @@ static void	process_conversion(char c, int *count, va_list args)
 	else if (c == 'u')
 		process_uns(va_arg(args, unsigned int), count);
 	else if (c == 'x')
-		process_hex(va_arg(args, int), count, 0);
+		process_hex(va_arg(args, unsigned int), count, 0);
 	else if (c == 'X')
-		process_hex(va_arg(args, int), count, 1);
+		process_hex(va_arg(args, unsigned int), count, 1);
 	else if (c == '%' && ++(*count))
 		write(1, "%", 1);
 	else if (++(*count))
