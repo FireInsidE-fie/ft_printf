@@ -18,10 +18,11 @@ void	process_ptr(void *ptr, int *count)
 	
 	address = (uintptr_t)ptr;
 	write(1, "0x", 2);
+	*count += 2;
 	if (!ptr)
 	{
 		write(1, "0", 1);
-		*count += 3;
+		*count += 1;
 		return ;
 	}
 	process_hex(address, count, 0);
