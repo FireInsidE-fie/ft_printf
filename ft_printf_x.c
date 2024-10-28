@@ -23,15 +23,16 @@ static void	ft_putnbr_base(unsigned int nb, char *charset, int *count)
 	unsigned short	base;
 
 	base = ft_strlen(charset);
-	(*count)++;
 	if (nb >= base)
 	{
 		ft_putnbr_base(nb / base, charset, count);
-		(*count)++;
 		nb = nb % base;
 	}
 	if (nb < base)
+	{
+		(*count)++;
 		ft_putchar_fd(charset[nb], 1);
+	}
 }
 
 void	process_hex(unsigned int nb, int *count, int is_uppercase)
