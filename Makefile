@@ -31,5 +31,5 @@ re: fclean all
 $(LIBFT):
 	cd ./libft && make
 debug: $(LIBFT) $(SRCS) main.c
-	$(CC) $(CFLAGS) -g $(SRCS) main.c -include $(INCL) -Llibft/ -lft -o $@
+	$(CC) -Wall -Wextra -g $(SRCS) main.c -include $(INCL) -Llibft/ -lft -o $@
 .PHONY: all clean fclean re
