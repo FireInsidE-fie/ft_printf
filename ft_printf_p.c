@@ -14,10 +14,15 @@
 
 void	process_ptr(void *ptr, int *count)
 {
+	uintptr_t address;
+	
+	address = (uintptr_t)ptr;
+	write(1, "0x", 2);
 	if (!ptr)
 	{
-		write(1, "0x0", 3);
+		write(1, "0", 1);
 		*count += 3;
+		return ;
 	}
-
+	process_hex(address, count, 0);
 }

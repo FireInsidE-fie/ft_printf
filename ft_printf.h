@@ -19,6 +19,7 @@
 // libraries
 # include <stdarg.h> // for variadic functions and va_ helpers
 # include <unistd.h> // for write()
+# include <stdint.h> // for uintptr
 
 // function prototypes
 int		ft_printf(const char *format, ...);

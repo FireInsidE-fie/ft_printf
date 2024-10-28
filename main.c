@@ -42,6 +42,8 @@ int	main(void)
 
 	ft_printf("\n[!] - p conversion tests...\n\n");
 	ft_printf("Printing address of NULL : %p\n", NULL);
+	ft_printf("Printing address of a number : %p\n", (void *)35);
+	ft_printf("Printing address of a string literal : %p\n", (void *)"wow wow");
 
 	ft_printf("\n[!] - d conversion tests...\n\n");
 	ft_printf("Printing 0 : %d\n", 0);
