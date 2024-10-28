@@ -14,8 +14,8 @@
 
 void	process_ptr(void *ptr, int *count)
 {
-	uintptr_t address;
-	
+	uintptr_t	address;
+
 	address = (uintptr_t)ptr;
 	write(1, "0x", 2);
 	*count += 2;
