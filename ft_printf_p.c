@@ -12,6 +12,23 @@
 
 #include "ft_printf.h"
 
+static void	ft_putnbr_base(uintptr_t nb, char *charset, int *count)
+{
+	unsigned short	base;
+
+	base = ft_strlen(charset);
+	if (nb >= base)
+	{
+		ft_putnbr_base(nb / base, charset, count);
+		nb = nb % base;
+	}
+	if (nb < base)
+	{
+		(*count)++;
+		ft_putchar_fd(charset[nb], 1);
+	}
+}
+
 void	process_ptr(void *ptr, int *count)
 {
 	uintptr_t	address;
@@ -22,8 +39,8 @@ void	process_ptr(void *ptr, int *count)
 	if (!ptr)
 	{
 		write(1, "0", 1);
-		*count += 1;
+		(*count)++;
 		return ;
 	}
-	process_hex(address, count, 0);
+	ft_putnbr_base(address, "0123456789abcdef", count);
 }
