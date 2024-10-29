@@ -13,7 +13,7 @@
 #include "ft_printf.h"
 
 /**
- * @brief Puts a number to the standard input in the specified base.
+ * @brief Puts an unsigned number to the standard input in the specified base.
  *
  * @param nb The number to print.
  * @param charset The charset for the base (length determines the base number).

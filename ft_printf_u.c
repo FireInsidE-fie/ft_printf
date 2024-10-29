@@ -12,6 +12,12 @@
 
 #include "ft_printf.h"
 
+/**
+ * @brief Gets the number of digits of an unsigned integer.
+ *
+ * @param nb The unsigned int to process.
+ * @return The number of digits calculated.
+ */
 static int	get_uns_len(unsigned int nb)
 {
 	unsigned int	divider;
@@ -27,6 +33,11 @@ static int	get_uns_len(unsigned int nb)
 	return (digit_count);
 }
 
+/**
+ * @brief Puts an unsigned integer to stdout.
+ *
+ * @param n The unsigned integer to print out.
+ */
 static void	ft_putuns(unsigned int n)
 {
 	if (n >= 10)

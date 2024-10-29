@@ -12,6 +12,14 @@
 
 #include "ft_printf.h"
 
+/**
+ * @brief Calculates the number of digits of an integer.
+ *
+ * @note Minus signs are considered as an additional digit.
+ *
+ * @param nb The integer to process.
+ * @return Returns the number of digits calculated.
+ */
 static int	get_int_len(int nb)
 {
 	int	divider;
