@@ -17,7 +17,7 @@
 int	main(void)
 {
 	ft_printf("\n[?] - Tests structure : printf then ft_printf.\n\n");
-/*
+
 	ft_printf("\n[!] - Beginning basic tests...\n\n");
 
 	printf("");
@@ -39,10 +39,14 @@ int	main(void)
 	ft_printf("\n[!] - c conversion tests...\n\n");
 
 	printf("Printing c : %c\n", 'c');
+	printf("Printing three times c : %c%c%c\n", 'c', 'c', 'c');
+	printf("Printing abc : %c%c%c\n", 'a', 'b', 'c');
 	printf("Printing a null character : %c\n", 0);
 	printf("Printing 9 : %c\n", '9');
 
 	ft_printf("Printing c : %c\n", 'c');
+	ft_printf("Printing three times c : %c%c%c\n", 'c', 'c', 'c');
+	ft_printf("Printing abc : %c%c%c\n", 'a', 'b', 'c');
 	ft_printf("Printing a null character : %c\n", 0);
 	ft_printf("Printing 9 : %c\n", '9');
 
@@ -65,7 +69,6 @@ int	main(void)
 	ft_printf("String 5 : %s\n", "Time to mix drinks and change lives.");
 	ft_printf("String 6 : %s\n", "\n\t\b\t\n");
 	ft_printf("String 7 : %s\n", "%s");
-*/
 	ft_printf("\n[!] - p conversion tests...\n\n");
 	
 	int		a = 10;
@@ -87,7 +90,6 @@ int	main(void)
 	ft_printf("Printing address of c : %p\n", c);
 
 	free(c);
-/*
 	ft_printf("\n[!] - d conversion tests...\n\n");
 
 	printf("Printing 0 : %d\n", 0);
@@ -171,5 +173,4 @@ int	main(void)
 	ft_printf("Printing ABCDEF : %X\n", 0xabcdef);
 	ft_printf("Printing INT_MAX : %X\n", INT_MAX);
 	ft_printf("Printing INT_MIN : %X\n", INT_MIN);
-*/
 }
