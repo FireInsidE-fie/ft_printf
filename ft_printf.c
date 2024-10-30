@@ -21,22 +21,22 @@
  * accordingly.
  * @param args The list of arguments received by ft_printf().
  */
-static void	process_conversion(char c, int *count, va_list args)
+static void	process_conversion(char c, int *count, va_list *args)
 {
 	if (c == 'c' && ++(*count))
-		ft_putchar_fd(va_arg(args, int), 1);
+		ft_putchar_fd(va_arg(*args, int), 1);
 	else if (c == 's')
-		process_str(va_arg(args, char *), count);
+		process_str(va_arg(*args, char *), count);
 	else if (c == 'p')
-		process_ptr(va_arg(args, void *), count);
+		process_ptr(va_arg(*args, void *), count);
 	else if (c == 'd' || c == 'i')
-		process_dec(va_arg(args, int), count);
+		process_dec(va_arg(*args, int), count);
 	else if (c == 'u')
-		process_uns(va_arg(args, unsigned int), count);
+		process_uns(va_arg(*args, unsigned int), count);
 	else if (c == 'x')
-		process_hex(va_arg(args, unsigned int), count, 0);
+		process_hex(va_arg(*args, unsigned int), count, 0);
 	else if (c == 'X')
-		process_hex(va_arg(args, unsigned int), count, 1);
+		process_hex(va_arg(*args, unsigned int), count, 1);
 	else if (c == '%' && ++(*count))
 		write(1, "%", 1);
 	else if (++(*count))
@@ -65,7 +65,7 @@ int	ft_printf(const char *format, ...)
 		{
 			i++;
 			if (format[i])
-				process_conversion(format[i++], &count, args);
+				process_conversion(format[i++], &count, &args);
 		}
 		else if (format[i])
 		{
