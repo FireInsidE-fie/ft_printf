@@ -13,6 +13,12 @@
 #include "ft_printf.h"
 #include "libft/libft.h"
 
+/**
+ * @brief Prints a string to stdout, counting the number of bytes written.
+ *
+ * @param str The string to process.
+ * @param count A pointer to the number of bytes written by ft_printf() so far.
+ */
 void	process_str(char *str, int *count)
 {
 	if (!str)

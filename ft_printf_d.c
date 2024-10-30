@@ -42,6 +42,12 @@ static int	get_int_len(int nb)
 	return (digit_count);
 }
 
+/**
+ * @brief Prints a decimal integer and counts the number of bytes written.
+ *
+ * @param nb The integer to print.
+ * @param count A pointer to the number of bytes written by ft_printf() so far.
+ */
 void	process_dec(int nb, int *count)
 {
 	ft_putnbr_fd(nb, 1);

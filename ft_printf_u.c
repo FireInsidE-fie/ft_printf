@@ -49,6 +49,12 @@ static void	ft_putuns(unsigned int n)
 		ft_putchar_fd(n + '0', 1);
 }
 
+/**
+ * @brief Prints an unsigned integer to stdout, counting the number of bytes.
+ *
+ * @param nb The unsigned int to process.
+ * @param count A pointer to the number of bytes written by ft_printf() so far.
+ */
 void	process_uns(unsigned int nb, int *count)
 {
 	ft_putuns(nb);

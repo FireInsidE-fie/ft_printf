@@ -12,6 +12,13 @@
 
 #include "ft_printf.h"
 
+/**
+ * @brief Puts a memory address to the standard input in the specified base.
+ *
+ * @param nb The number to print in uintptr_t (specific type for memory
+ * addresses).
+ * @param charset The charset for the base (length determines the base number).
+ */
 static void	ft_putnbr_base(uintptr_t nb, char *charset, int *count)
 {
 	unsigned short	base;
@@ -29,6 +36,12 @@ static void	ft_putnbr_base(uintptr_t nb, char *charset, int *count)
 	}
 }
 
+/**
+ * @brief Prints a pointer's address to stdout.
+ *
+ * @param ptr The pointer to take the address of.
+ * @param count A pointer to the number of bytes written by ft_printf() so far.
+ */
 void	process_ptr(void *ptr, int *count)
 {
 	uintptr_t	address;

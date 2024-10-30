@@ -14,9 +14,10 @@
 
 /**
  * @brief Calls the right function for the job depending on the conversion.
+ * Supported conversions so far : cspdiuxX%
  *
  * @param c The character that will determine what conversion needs to happen.
- * @param count A pointer to the number of bytes written variable to be updated
+ * @param count A pointer to the number of bytes written count to be incremented
  * accordingly.
  * @param args The list of arguments received by ft_printf().
  */
@@ -46,6 +47,7 @@ static void	process_conversion(char c, int *count, va_list args)
  * @brief Prints a formatted string to stout.
  *
  * @param format The string with format specifiers to print to stdout.
+ * @param ... Every value to be printed to stdout contained in format.
  * @return Returns the number of bytes written.
  */
 int	ft_printf(const char *format, ...)
