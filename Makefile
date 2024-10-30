@@ -24,8 +24,10 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -include $(INCL) -c $< -o $@ 
 clean:
 	$(RM) $(RMFLAGS) $(OBJS) 
+	cd libft/ && make clean
 fclean: clean
 	$(RM) $(RMFLAGS) $(NAME)
+	cd libft/ && make fclean
 re: fclean all
 
 $(LIBFT):
